@@ -43,7 +43,7 @@ const Navbar = () => {
     <nav className="w-full flex items-center justify-between px-4 py-3 bg-white shadow-md sticky top-0 z-50">
       {/* Left: Burger, Logo, and Search */}
       <div className="flex items-center gap-4 flex-1">
-        {/* Burger Menu (now always visible) */}
+  
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon">
@@ -66,10 +66,9 @@ const Navbar = () => {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        {/* Logo */}
         <Link to="/home" className="text-blue-600 text-xl font-bold">QLIQ</Link>
 
-        {/* Search Bar (flex-1 to fill space, hidden on small screens) */}
+
         <form onSubmit={handleSearch} className="flex-1 sm:hidden md:flex">
           <Input
             type="text"
@@ -81,7 +80,6 @@ const Navbar = () => {
         </form>
       </div>
 
-      {/* Right: Language, Help, Refer Now, Notifications, Profile */}
       <div className="flex items-center gap-4 ml-auto">
         {/* Language Selection */}
         <div className="flex items-center gap-2">
@@ -93,15 +91,12 @@ const Navbar = () => {
           </select>
         </div>
 
-        {/* Help Icon */}
         <HelpCircle className="w-5 h-5 text-gray-600 cursor-pointer" />
 
-        {/* Refer Now */}
         <Button variant="outline" className="text-sm px-3">
           Refer Now
         </Button>
 
-        {/* Notifications */}
         <div className="relative cursor-pointer">
           <Bell className="w-5 h-5 text-gray-600" />
           <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
@@ -109,7 +104,6 @@ const Navbar = () => {
           </span>
         </div>
 
-        {/* Profile Avatar with Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <div className="cursor-pointer">

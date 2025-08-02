@@ -10,7 +10,7 @@ const influencerProfileSchema = new mongoose.Schema(
     username: {
       type: String,
       required: true,
-      index: true, // for fast searching
+      index: true, 
     },
     displayName: {
       type: String,
@@ -30,15 +30,15 @@ const influencerProfileSchema = new mongoose.Schema(
       default: 0,
     },
     contentTypes: {
-      type: [String], // e.g., ["Beauty", "Fitness", "Comedy"]
+      type: [String], 
       default: [],
     },
     niche: {
-      type: String, // e.g., "Fashion", "Gaming"
+      type: String, 
     },
 
     region: {
-      type: String, // e.g., "North America", "Asia"
+      type: String, 
     },
     country: {
       type: String,

@@ -21,7 +21,7 @@ export const getAllInfluencers = async (req, res) => {
     };
 
     if (platform) {
-      filters.$and.push({ platform: platform }); // e.g., "Instagram"
+      filters.$and.push({ platform: platform }); 
     }
 
     const skip = (page - 1) * limit;
@@ -44,7 +44,6 @@ export const getAllInfluencers = async (req, res) => {
   }
 };
 
-// POST /api/influencers/:id/claim
 export const claimProfile = async (req, res) => {
   try {
     const { id } = req.params;

@@ -47,7 +47,7 @@ const KycSetup = () => {
             });
             toast.success("KYC details submitted successfully!");
             setIsKycSubmitted(true);
-            // Navigate to the next step after successful submission
+ 
             navigate("/onboarding/preferences"); 
         } catch (err) {
             console.error(err);

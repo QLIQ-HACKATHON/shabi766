@@ -2,7 +2,7 @@ import Influenceruser from "../model/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-// AuthController.js
+
 export const registerUser = async (req, res) => {
   try {
     console.log("typeof req.body:", typeof req.body);
@@ -18,12 +18,10 @@ export const registerUser = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: "User already exists with this email." });
     }
-    
-    // Hash the password and generate referral code
+ 
     const hashedPassword = await bcrypt.hash(password, 10);
     const referralCode = Math.random().toString(36).substring(2, 8).toUpperCase();
 
-    // Prepare the user data object
     const userData = {
       name,
       email,
@@ -40,12 +38,9 @@ export const registerUser = async (req, res) => {
     const newUser = new Influenceruser(userData);
 
     if (referredBy) {
-      // NEW LOGGING LINE
-      console.log("Searching for referrer with code:", referredBy);
+      
       const referrer = await Influenceruser.findOne({ referralCode: new RegExp(`^${referredBy}$`, 'i') });
       
-      // NEW LOGGING LINE
-      console.log("Query result:", referrer);
 
       if (!referrer) {
         return res.status(400).json({ message: "Invalid referral code." });

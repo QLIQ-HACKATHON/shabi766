@@ -19,7 +19,7 @@ const ReferralsTab = () => {
 
         const fetchReferrals = async () => {
             try {
-                // Ensure your backend router is configured to handle this path correctly
+
                 const res = await API.get(`/referrals/${user._id}/referrals`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });

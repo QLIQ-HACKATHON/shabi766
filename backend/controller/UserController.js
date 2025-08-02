@@ -1,7 +1,6 @@
-// controllers/userController.js
+
 import Influenceruser from '../model/User.js';
 
-// Get user profile (without password)
 export const getProfile = async (req, res) => {
   try {
     const user = await Influenceruser.findById(req.userId)
@@ -52,7 +51,6 @@ export const updateProfile = async (req, res) => {
 
     const { interests, niches, contentTypes, brandPreferences } = req.body;
 
-    // Update preferences fields if they exist in the request body
     if (interests) user.preferences.interests = interests;
     if (niches) user.preferences.niches = niches;
     if (contentTypes) user.preferences.contentTypes = contentTypes;
@@ -76,13 +74,11 @@ export const updateKYC = async (req, res) => {
       return res.status(400).json({ msg: "Age, gender, and location are required." });
     }
 
-    // Check if a file was uploaded and get its path
     const documentPath = req.file ? req.file.path : null;
     if (!documentPath) {
       return res.status(400).json({ msg: "A document is required for KYC." });
     }
 
-    // Update KYC fields
     user.kyc.age = age;
     user.kyc.gender = gender;
     user.kyc.location = location;

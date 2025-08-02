@@ -2,7 +2,6 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 
-// Setup storage engine
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const uploadPath = "uploads/kyc_docs";
@@ -11,7 +10,6 @@ const storage = multer.diskStorage({
     cb(null, uploadPath);
   },
   filename: function (req, file, cb) {
-    // Unique filename: userId + timestamp + original extension
     const ext = path.extname(file.originalname);
     cb(null, req.userId + "_" + Date.now() + ext);
   },

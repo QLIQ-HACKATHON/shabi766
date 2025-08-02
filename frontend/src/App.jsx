@@ -1,4 +1,4 @@
-// App.jsx
+
 import React from "react";
 
 const App = () => {

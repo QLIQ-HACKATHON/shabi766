@@ -24,15 +24,14 @@ const Home = () => {
                     navigate("/login");
                     return;
                 }
-                
-                // Using your centralized API instance. No need for manual headers.
+ 
                 const userRes = await API.get("/user/me");
                 const userData = userRes.data;
                 setUser(userData);
                 
                 if (userData.claimedProfileId) {
                     const profileId = userData.claimedProfileId._id || userData.claimedProfileId;
-                    // Using your centralized API instance. No need for manual headers.
+
                     const profileRes = await API.get(`/influencers/${profileId}`);
                     setClaimedProfile(profileRes.data);
                 }
@@ -102,9 +101,9 @@ const Home = () => {
         );
     }
 
-    // --- Onboarding Complete Dashboard UI ---
+
     return (
-        // The SocketProvider is added here, wrapping the entire dashboard UI
+
         <SocketProvider userId={user._id}>
             <div className="p-6 md:p-10 bg-gray-50 min-h-screen">
                 <h1 className="text-4xl font-bold text-gray-800 mb-2">
@@ -142,7 +141,6 @@ const Home = () => {
                         </div>
                     </div>
 
-                    {/* Onboarding Progress Card (Now dynamic) */}
                     <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-200 flex flex-col justify-between">
                         <div>
                             <h4 className="text-xl font-bold text-gray-800 mb-2">Onboarding Progress</h4>
@@ -163,7 +161,6 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* A new grid for the smaller dashboard cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
                     <ReferralMetricsCard />
                     <ConnectedAccountsCard />

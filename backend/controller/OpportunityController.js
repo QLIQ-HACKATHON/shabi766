@@ -2,7 +2,6 @@ import Opportunity from '../model/Opportunity.js';
 
 export const getBrandOpportunities = async (req, res) => {
     try {
-        // Find all opportunities that are currently 'Open'
         const opportunities = await Opportunity.find({ status: 'Open' }).sort({ createdAt: -1 });
 
         res.status(200).json({ opportunities });

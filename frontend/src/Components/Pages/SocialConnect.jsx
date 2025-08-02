@@ -4,7 +4,7 @@ import API from "../Api";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
-// Import icons from react-icons for social media platforms
+
 import { FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
 
 const SocialConnect = () => {
@@ -16,7 +16,7 @@ const SocialConnect = () => {
     });
     const [loading, setLoading] = useState(true);
 
-    // Effect to fetch the current connection status from the backend
+
     useEffect(() => {
         const fetchStatus = async () => {
             try {
@@ -42,8 +42,7 @@ const SocialConnect = () => {
 
     const handleConnect = async (platform) => {
         try {
-            // In a real app, this would trigger an OAuth flow
-            // For now, this is a placeholder API call
+
             const token = localStorage.getItem("token");
             await API.post(`/social/connect`, { platform }, {
                 headers: { Authorization: `Bearer ${token}` },

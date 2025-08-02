@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import API from "../Api"; // Your Axios instance
+import API from "../Api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -11,7 +11,7 @@ const ProfileClaiming = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  // Initialize searchTerm from the URL parameter 'q'
+ 
   const [searchTerm, setSearchTerm] = useState(searchParams.get('q') || "");
   const [platformFilter, setPlatformFilter] = useState("");
   const [minFollowers, setMinFollowers] = useState(0);
@@ -33,7 +33,7 @@ const ProfileClaiming = () => {
         search: searchTerm,
         platform: platformFilter,
         minFollowers: minFollowers,
-        page: 1, // Start with page 1 for new searches
+        page: 1, 
         limit: 10,
       };
 
@@ -70,8 +70,8 @@ const ProfileClaiming = () => {
       });
 
       toast.success(`You have successfully claimed the profile: ${selectedProfile.displayName || selectedProfile.username}!`);
-      setSelectedProfile(null); // Close the confirmation modal
-      fetchInfluencers(); // Refresh the list to reflect the change
+      setSelectedProfile(null); 
+      fetchInfluencers(); 
     } catch (error) {
       console.error("Claim profile failed:", error);
       const errorMessage = error.response?.data?.message || 'Failed to claim profile. Please try again.';
